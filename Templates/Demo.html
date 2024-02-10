@@ -1,0 +1,141 @@
+{% load static %}
+<html>
+  <head>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+<title>
+    {% block title %}
+    home page
+    {% endblock %}
+</title>
+    <link rel="stylesheet" href="{% static 'resstyle.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+  {% block navbar %}
+  <div class="sticky-sm-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-sm-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'list' %}">Items List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add' %}">Add Items</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+    <form class="d-flex" style="margin-top:15px">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-dark" type="submit" style="margin-right:20px">Search</button>
+      </form>
+</nav>
+  <div class="notice">
+    <p align="center">Your safety is our priority</p>
+</div>
+  </div>
+ {% endblock %}
+  {% block content %}
+
+<div id="carouselExampleControls" class="carousel slide box1" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'img2.jpg' %}" class="d-block w-100 boxsize1" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'img1.jpg' %}" class="d-block w-100 boxsize1" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'img22.jpg' %}" class="d-block w-100 boxsize1" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!--  Cuisine-->
+  <form method="post">
+    {% csrf_token %}
+  <h2 align="center"><u>Best Cuisines</u></h2>
+  <div class="cuisine-type">
+      <div class="card card-size">
+  <img src="{% static 'box1.jpg' %}" class="card-img-top box2" alt="...">
+  <div class="card-body">
+    <a href="{% url 'display' %}?name=Gujarati-Thali" class="align1" name="Gujarati-Thali"><h5 class="card-title">Gujarati-Thali</h5></a>
+  </div>
+  </div>
+  <div class="card card-size">
+  <img src="{% static 'box2.jpg' %}" class="card-img-top box2" alt="...">
+  <div class="card-body">
+    <a href="{% url 'display' %}?name=Chinese" class="align1" name="Chinese"><h5 class="card-title">Chinese</h5></a>
+  </div>
+  </div>
+    <div class="card card-size">
+  <img src="{% static 'box3.jpg' %}" class="card-img-top box2" alt="...">
+  <div class="card-body">
+    <a href="{% url 'display' %}?name=Italian" class="align1" name="Italian"><h5 class="card-title">Italian</h5></a>
+  </div>
+  </div>
+    <div class="card card-size">
+  <img src="{% static 'box4.jpg' %}" class="card-img-top box2" alt="...">
+  <div class="card-body">
+    <a href="{% url 'display' %}?name=America" class="align1" name="America"><h5 class="card-title">American</h5></a>
+  </div>
+  </div>
+  </div>
+
+  <div class="cuisine-type">
+
+
+      <div class="card card-size">
+  <img src="{% static 'box5.jpg' %}" class="card-img-top box2" alt="...">
+  <div class="card-body">
+    <a href="{% url 'display' %}?name=Japanese" class="align1" name="Japanese"><h5 class="card-title">Japanese</h5></a>
+  </div>
+  </div>
+  <div class="card card-size">
+  <img src="{% static 'box6.jpg' %}" class="card-img-top box2" alt="...">
+  <div class="card-body">
+    <a href="{% url 'display' %}?name=South-Indian" class="align1" name="South-Indian"><h5 class="card-title">South-Indian</h5></a>
+  </div>
+  </div>
+    <div class="card card-size">
+  <img src="{% static 'box7.jpg' %}" class="card-img-top box2" alt="...">
+  <div class="card-body">
+    <a href="{% url 'display' %}?name=North-Indian" class="align1" name="North-Indian"><h5 class="card-title">North-Indian</h5></a>
+  </div>
+  </div>
+    <div class="card card-size">
+  <img src="{% static 'box8.jpg' %}" class="card-img-top box2" alt="...">
+  <div class="card-body">
+    <a href="{% url 'display' %}?name=Bengali-Thali" class="align1" name="Bengali-Thali"><h5 class="card-title">Bengali-Thali</h5></a>
+  </div>
+  </div>
+  </div>
+    </form>
+  <br><br>
+  {% endblock %}
+
+  </body>
+  {% block footer %}
+<footer>
+  <div class="footer"></div>
+</footer>
+{% endblock %}
+
+</html>

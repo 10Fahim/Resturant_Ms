@@ -1,0 +1,43 @@
+.box1{
+    margin-top:30px;
+    margin-right:150px;
+    margin-left:150px;
+    height:300px;
+}
+.boxsize1{
+    height:280px;
+    margin-bottom:70px;
+    border:1px solid;
+}
+.notice{
+    height:30px;
+    color:yellow;
+    background-color:#222f3d;
+}
+.cuisine-type{
+    display:flex;
+    justify-content: space-evenly;
+    height:200px;
+    margin-top:50px;
+}
+.card-size{
+    width:250;
+    height:200px;
+
+}
+.box2{
+    width: 250px;
+    height:140px;
+}
+.align1{
+    display: flex;
+    justify-content:center;
+    align-item:center;
+    text-decoration:none;
+    color:black;
+}
+
+.footer{
+    height:50px;
+    background-color:#222f3d;
+}

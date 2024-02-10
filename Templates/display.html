@@ -1,0 +1,42 @@
+{% extends 'Demo.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+  display page
+  {% endblock %}
+</head>
+{% block content %}
+<body class="body-secondary"><br>
+  <h1 align="center"><b>List of Recipes</b></h1><br>
+  <div class="container">
+  <table class="table table-striped">
+    <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>Item Name</th>
+      <th>Cuisine Type</th>
+      <th>Food Type</th>
+      <th>Timing</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody class="table-primary">
+      {% for f in data %}
+      <tr>
+        <td>{{ f.id }}</td>
+        <td>{{ f.item_name}}</td>
+        <td>{{ f.cuisine_name}}</td>
+        <td>{{ f.type}}</td>
+        <td>{{ f.timing}}</td>
+        <td>{{ f.price}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br>
+  </div>
+</body><br>
+{% endblock %}
+</html>

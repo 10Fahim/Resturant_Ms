@@ -1,0 +1,71 @@
+{% extends 'Demo.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    update_details page
+    {% endblock %}
+</head>
+{% block content %}
+<body align="center">
+<h1 align="center"> Update food details</h1><br><br>
+<form class="container" method="post">
+    {% csrf_token%}
+  <div class="row mb-3">
+    <label for="text1" class="col-sm-2 col-form-label">Recipe name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="text1" name="text1" value="{{ food.item_name }}">
+    </div>
+  </div>
+   <div class="row mb-3">
+    <label for="input" class="col-sm-2 col-form-label">Cuisine Type</label>
+     <div class="col-sm-10">
+    <select id="input" class="form-control" name="select1">
+      <option selected>{{food.cuisine_name}}</option>
+        {% for c in cuisine %}
+        <option>{{ c.cuisine_name }}</option>
+        {% endfor %}
+    </select>
+       </div>
+  </div>
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Food type</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="radio1" id="radio1" value="Veg" checked>
+        <label class="form-check-label" for="radio1">
+          Veg
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="radio1" id="gridRadios2" value="Non-veg">
+        <label class="form-check-label" for="gridRadios2">
+          Non-veg
+        </label>
+      </div>
+    </div>
+  </fieldset>
+   <div class="row mb-3">
+    <label for="inputState" class="col-sm-2 col-form-label">Timing</label>
+     <div class="col-sm-10">
+    <select id="inputState" class="form-control" name="select2">
+      <option selected>{{ food.timing }}</option>
+        <option>Breakfast</option>
+        <option>Lunch</option>
+        <option>Dinner</option>
+        <option>Fastfood</option>
+    </select>
+       </div>
+  </div>
+  <div class="row mb-3">
+    <label for="num1" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="num1" name="num1" value="{{ food.price }}">
+    </div>
+  </div><br><br>
+  <button type="submit" class="btn btn-warning form-control">Update</button>
+</form>
+
+</body><br><br><br><br>
+{% endblock %}
+</html>
